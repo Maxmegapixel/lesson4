@@ -7,10 +7,9 @@
     {
         result += i;
     }
-    Console.WriteLine($"Сумма равна: {result}");
     return result;
-    
 }
 Console.WriteLine("Введите число");
 int First = Convert.ToInt32(Console.ReadLine()!);
-SumMet(First);
+int Sum = SumMet(First);
+Console.WriteLine($"Сумма равна: {Sum}");
