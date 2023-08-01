@@ -1,15 +1,18 @@
-﻿// Сумма чисел от 1 го до А
-
- static int SumMet(int Num)
+﻿// в тексте заменить Г ==> г, о ==> O, " " ==> "_"
+string text123 = "Ехал Грека через реку,"
+              + "Видит Грека в реке рак."
+              + "Сунул Грека рука в реку,"
+              + "Рак за руку Греку цап.";
+static string MetText(string text, char OldSim, char NewSim)
 {
-    int result=0;
-    for (int i=1;i<=Num;i++)
+    string result = "";
+    for (int i = 0; i <= text.Length; i++)
     {
-        result += i;
+        if (text[i] == OldSim) result += $"{NewSim}";
+        else result += $"{text[i]}";
+
     }
     return result;
 }
-Console.WriteLine("Введите число");
-int First = Convert.ToInt32(Console.ReadLine()!);
-int Sum = SumMet(First);
-Console.WriteLine($"Сумма равна: {Sum}");
+string TextTest = MetText(text123, OldSim: 'Г', NewSim: 'ж');
+Console.WriteLine(TextTest);
