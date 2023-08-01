@@ -1,15 +1,28 @@
-﻿// Произведение чисел от 1 го до А
+﻿// счастливое шестизначное число (сумма 1вых 3х цифр равна последним)
 
- static int ProdGet(int Num)
+static void HappyNum(string Number)
 {
-    int result=1;
-    for (int i=1;i<=Num;i++)
+    int count = Number.Length;
+    Console.WriteLine($"Длина {count}");
+    if (count != 6) 
     {
-        result *= i;
+        Console.WriteLine($"Число {Number} не шестизначное");
     }
-    return result;
+    else
+    {
+        int sum1 = 0;
+        int sum2 = 0;
+        for (int i = 0; i < count/2; i++)
+        {
+            sum1 += Number[i];
+            sum2 += Number[i+3];
+        }
+        if (sum1 == sum2) Console.WriteLine($"Число {Number} счатливое");
+        else Console.WriteLine($"Число {Number} не счатливое");
+    }
+   
 }
-Console.WriteLine("Введите число");
-int First = Convert.ToInt32(Console.ReadLine()!);
-int Sum = ProdGet(First);
-Console.WriteLine($"Сумма равна: {Sum}");
+
+Console.WriteLine("Введите число: ");
+string Num1 = Console.ReadLine()!;
+HappyNum(Num1);
