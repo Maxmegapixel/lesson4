@@ -1,25 +1,13 @@
-﻿// счастливое шестизначное число (сумма 1вых 3х цифр равна последним)
+﻿// двоичный массив из восьми элементов
 
-bool HappyNum(string Number)
+int[] ArrMet(int Size)
 {
-        int sum1 = 0;
-        int sum2 = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            sum1 += Number[i];
-            sum2 += Number[i+3];
-        }
-        if (sum1 == sum2) return true;
-        else return false;
-}
-
-Console.WriteLine("Введите число: ");
-string Number = Console.ReadLine()!;
-int count = Number.Length;
-    Console.WriteLine($"Длина {count}");
-    if (count != 6) Console.WriteLine($"Число {Number} не шестизначное");
-    else 
+    int[] Arr = new int[Size];
+    for (int i = 0; i<Size; i++)
     {
-        if (HappyNum(Number) == true) Console.WriteLine($"Число {Number} счатливое");
-        else Console.WriteLine($"Число {Number} не счатливое"); 
+        Arr[i]= new Random().Next(2);
     }
+    return Arr;
+}
+int[] massive = ArrMet(8);
+Console.WriteLine($"{String.Join(" ", massive)}");
